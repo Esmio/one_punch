@@ -56,7 +56,6 @@ router.route('/:id')
 			.catch(e=>{
 				next(e)
 			})
-		// res.send('trying to get a topic');
 	})
 	.patch((req, res)=>{
 		(async () => {
@@ -75,7 +74,6 @@ router.route('/:id')
 			.catch(e=>{
 				next(e)
 			})
-		// res.send('trying to modify a topic');
 	})
 
 router.route('/:id/reply')
