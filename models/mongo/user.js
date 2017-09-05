@@ -3,10 +3,12 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
 	name: {type: String, required: true},
-	age: {type: Number},
+	age: {type: Number, max: [90, 'Nobody over 90 could use postman']},
 })
 
 UserSchema.index({name: 1}, {unique: true})
+
+UserSchema.index({name: 1, age: 1})
 
 const UserModel = mongoose.model('user', UserSchema);
 
@@ -15,7 +17,14 @@ async function createANewUser(params) {
 	return await user.save()
 		.catch(e=>{
 			console.log(e)
-			throw new Error(`error creating user ${ JSON.stringify(params) }`)
+			switch (e.code) {
+				case 11000 : 
+					throw new Error('Someone has picked that name, choose another!')
+					break;
+				default: 
+					throw new Error(`error creating user ${ JSON.stringify(params) }`)
+					break;
+			}
 		})
 }
 
