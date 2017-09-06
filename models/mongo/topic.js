@@ -1,55 +1,72 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-class Topic {
-	constructor(params) {
-		if(!params.creator) throw {code: -1, msg:"a topic must be sent by a user"};
-		if(!params.title) throw {code: -1, msg:"a topic must contain a title"};
-		if(params.content < 5) throw {code: -1, msg:"a topic's content must be longer than 5 charactors"};
-		this._id = TOPIC_ID_INIT++;	
-		this.title = params.title;
-		this.content = params.content;
-		this.replyList = [];
-	}
-}
-
-const UserSchema = new Schema({
-	title: {type: String, required: true},
-	content: {type: String,required: true},
+const ReplySchema = new Schema({
+	creator: Schema.Types.ObjectId,
+	content: String
 })
 
+const TopicSchema = new Schema({
+	creator: {type: String, required: true},
+	title: {type: String},
+	content: String,
+	replyList: [ReplySchema]
+})
+
+const TopicModel = mongoose.model('topic', TopicSchema)
+
 async function createANewTopic(params) {
-	const topic = new Topic(params);
-	topics.push(topic);
-	return topic;
+	const topic = new TopicModel({
+		creator: params.creator,
+		title: params.age,
+		content: params.content
+	});
+	return await topic.save()
+		.catch(e => {
+			throw Error(`error creating topic ${ JSON.stringify(params) }`)
+		})
 }
 
 async function getTopics(params){
-	return topics;
+	let flow = TopicModel.find({})
+	flow.skip(params.page * params.pageSize)
+	flow.limit(params.pageSize)
+	return await flow
+		.catch(e => {
+			console.log(e)
+			throw new Error('error getting topics from db')
+		})
 }
 
 async function getTopicById(topicId){
-	return topics.find(u=>u._id === topicId);
+	return await TopicModel.findOne({_id: topicId})
+		.catch(e => {
+			console.log(e)
+			throw new Error(`error getting user by id: ${topicId}`)
+		})
 }
 
 async function updateTopicById(topicId, update){
-	const topic =  topics.find(u=>u._id === topicId);
-	if(update.name) topic.name = update.name;
-	if(update.age) topic.age = update.age;
-	return topic;
+	return await TopicModel.findOneAndUpdate({_id: topicId}, update, {new: true})
+		.catch(e => {
+			console.log(e)
+			throw new Error(`error updating topic by id: ${topicId}`)
+		})
 }
 
 async function replyATopic(params){
-	const topic = topics.find(t=>Number(params.topicId) === t._id)
-	topic.replyList.push({
-		creator: params.creator,
-		content: params.content,
-	})
-	return topic;
+	return await TopicModel.findOneAndUpdate(
+		{_id: params.topicId},
+		{$push : {replyList: {creator: params.creator, content: params.content}}},
+		{new: true})
+		.catch(e => {
+			console.log(e)
+			throw new Error(`error replying topic ${JSON.stringify(params)}`)
+		})
 }
 
 module.exports = {
-	model : Topic,
+	model : TopicSchema,
 	createANewTopic,
 	getTopics,
 	getTopicById,
