@@ -12,7 +12,6 @@ module.exports = function(options) {
 				next(new Error('No auth!'))
 				return 
 			}
-
 			const obj = JWT.verify(token, JWT_SECRET)
 			if(!obj || !obj._id || !obj.expire) throw new Error('No auth!')
 			if(Date.now() - obj.expire > 0) throw new Error('Token expired')
