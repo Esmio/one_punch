@@ -79,6 +79,7 @@ async function updateUserById(userId, update){
 }
 
 async function login(phoneNumber, password) {
+	console.log(phoneNumber, password)
 	password = await pbkdf2Async(password, SALT, 512, 128, 'sha1')
 		.then(r => r.toString())
 		.catch(e=>{

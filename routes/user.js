@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/mongo/user');
+const auth = require('../middlewares/auth_user');
 
 /* GET users listing. */
 router.route('/')
@@ -57,7 +58,7 @@ router.route('/:id')
 			})
 		// res.send('trying to get a user');
 	})
-	.patch((req, res)=>{
+	.patch(auth(), (req, res, next)=>{
 		(async () => {
 			let update = {};
 			if(req.body.name) update.name = req.body.name;
