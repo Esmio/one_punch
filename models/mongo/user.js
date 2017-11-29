@@ -9,7 +9,8 @@ const UserSchema = new Schema({
 	name: {type: String, required: true},
 	age: {type: Number, max: [90, 'Nobody over 90 could use postman']},
 	phoneNumber: String,
-	password: String
+	password: String,
+	avatar: String,
 })
  
 UserSchema.index({name: 1}, {unique: true})

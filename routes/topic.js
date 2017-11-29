@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/in_memo/user');
 const Topic = require('../models/in_memo/topic');
+const auth = require('../middlewares/auth_user');
+
 
 /* GET topics listing. */
 router.route('/')
@@ -20,7 +22,7 @@ router.route('/')
 				next(e);
 			})
 	})
-	.post((req, res, next)=>{
+	.post(auth(),(req, res, next)=>{
 		( async () => {
 			const user = await User.getUserById(req.body.userId);
 			let topic = await Topic.createANewTopic({
@@ -57,7 +59,7 @@ router.route('/:id')
 				next(e)
 			})
 	})
-	.patch((req, res)=>{
+	.patch(auth(), (req, res)=>{
 		(async () => {
 			let topic = await Topic.updateTopicById(Number(req.params.id),{
 				name: req.body.name,
@@ -77,7 +79,7 @@ router.route('/:id')
 	})
 
 router.route('/:id/reply')
-	.post((req, res, next)=>{
+	.post(auth(), (req, res, next)=>{
 		( async () => {
 			const user = await User.getUserById(req.body.userId);
 			let topic = await Topic.replyATopic({
