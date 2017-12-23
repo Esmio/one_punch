@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const util = require('util');
 const pbkdf2Async = util.promisify(crypto.pbkdf2);
 const SALT = require('../../cipher').PASSWORD_SALT;
+const Errors = require('../../errors');
 
 const UserSchema = new Schema({
 	name: {type: String, required: true},
@@ -28,7 +29,7 @@ async function createANewUser(params) {
 		.then(r => r.toString())
 		.catch(e=>{
 			console.log(e)
-			throw new Error('something goes wrong inside the server')
+			throw new Errors.InternalError('something goes wrong inside the server')
 		})
 
 	let created = await user.save()
@@ -36,10 +37,11 @@ async function createANewUser(params) {
 			console.log(e)
 			switch (e.code) {
 				case 11000 : 
-					throw new Error('Someone has picked that name, choose another!')
+					throw new Errors.DuplicatedUserNameError(params.name)
 					break;
 				default: 
-					throw new Error(`error creating user ${ JSON.stringify(params) }`)
+					console.log(e)
+					throw new Errors.ValidationError('user',`error creating user ${ JSON.stringify(params) }`)
 					break;
 			}
 		})

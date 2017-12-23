@@ -1,16 +1,18 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/user');
+const index = require('./routes/index');
+const users = require('./routes/user');
 const topicRouter = require('./routes/topic');
 require('./services/mongoose_service');
 
-var app = express();
+const app = express();
+
+const Errors = require('./errors');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,20 +32,27 @@ app.use('/topic', topicRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  if (err instanceof Errors.BaseHTTPError) {
+    res.statusCode = err.httpCode;
+    res.json({
+      code: err.OPCode,
+      msg: err.httpMsg,
+    })
+  } else {
+    res.statusCode = 500;
+    res.json({
+      code: Errors.BaseHTTPError.DEFAULT_OPCODE ,
+      msg: '服务器好像出错了，一会儿再试试吧~',
+    })
+  }
+  console.log(err)
 });
 
 
