@@ -4,13 +4,4 @@ let redis = new Redis({
     port: 6379,
 })
 
-redis.set('ccc', 'ri')
-
-redis.hset('h_set_key', 'field1', 'value1', (e, r)=>{
-    console.log(`r1 ${r}`);
-})
-
-redis.hset('h_set_key', 'field2', 'value2')
-    .then(r=>{
-        console.log(`r2 ${r}`)
-    })
+module.exports = redis;
