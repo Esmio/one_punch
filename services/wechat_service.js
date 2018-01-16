@@ -83,23 +83,25 @@ async function getAccessTokenFromCache(code) {
         }
     }
 
-    return {refreshToken, accessToken}
+    return { refresh_token: refreshToken, access_token: accessToken}
 }
 
-async function getUserInfoByAcessToken(openId, accessToken) {
-    const url = `https://api.weixin.qq.com/sns/userinfo?acccess_token=${accessToken}&openid=${openId}&lang=zh_CN`;
+async function getUserInfoByAccessToken(openId, accessToken) {
+    const url = `https://api.weixin.qq.com/sns/userinfo?access_token=${accessToken}&openid=${openId}&lang=zh_CN`;
     const user = await axios.get(url)
         .then(r => {
             if(!r || !r.data) throw new Errors.WechatAPIError('invalid wechat api response');
             return r.data;
         })
+    console.log('ffhfhhff',user)
     return user;
 }
 
 async function getUserInfoByCode(code) {
     const tokenObj = await getAccessTokenByCode(code);
-    const user = await getUserInfoByAcessToken(tokenObj.openid, tokenObj.access_token);
-    return user
+    console.log('tokenObj', tokenObj)
+    const user = await getUserInfoByAccessToken(tokenObj.openid, tokenObj.access_token);
+    return user;
 }
 
 module.exports = {
