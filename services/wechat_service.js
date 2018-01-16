@@ -23,13 +23,16 @@ async function getAccessTokenByCode(code) {
             })
     }
     await saveUserAccessToken(code, tokenObj)
-    await saveRefreshToken(code, tokenObj)
+    if(tokenObj.refresh_token){
+        await saveRefreshToken(code, tokenObj)
+    }
     return tokenObj
 }
 
 async function saveRefreshToken(code, tokenObj) {
     if (!code) throw new Errors.ValidationError('code', 'code can not be empty');
-    if (!tokenObj || !tokenObj.refreshToken) throw new Errors.ValidationError('access_token_obj', 'access_token can not be empty');
+    console.log('tokenObj',tokenObj.refresh_token)
+    if (!tokenObj || !tokenObj.refresh_token) throw new Errors.ValidationError('refresh_token_obj', 'refresh_token can not be empty');
     await redis.set(WECHAT_USER_REFRESH_TOKEN_BY_CODE_PREF + code, tokenObj.refresh_token)
         .catch(e => {
             throw Errors.RedisError(`setting wechat user refresh token failed cause: ${e.message}`);
@@ -69,8 +72,10 @@ async function getAccessTokenFromCache(code) {
             throw Errors.RedisError(`getting wechat user access token failed cause: ${e.message}`);
         });
 
+    let refreshToken = null;
+
     if(!accessToken) {
-        let refreshToken = await redis.get(WECHAT_USER_REFRESH_TOKEN_BY_CODE_PREF + code)
+        refreshToken = await redis.get(WECHAT_USER_REFRESH_TOKEN_BY_CODE_PREF + code)
             .catch(e => {
                 throw Errors.RedisError(`getting wechat user refresh token failed cause: ${e.message}`);
             });
@@ -93,7 +98,6 @@ async function getUserInfoByAccessToken(openId, accessToken) {
             if(!r || !r.data) throw new Errors.WechatAPIError('invalid wechat api response');
             return r.data;
         })
-    console.log('ffhfhhff',user)
     return user;
 }
 
