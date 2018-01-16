@@ -4,6 +4,7 @@ const User = require('../models/mongo/user');
 const JWT = require('jsonwebtoken');
 const JWT_SECRET = require('../cipher').JWT_SECRET;
 const Errors = require('../errors');
+const WechatService = require('../services/wechat_service');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -28,6 +29,22 @@ router.post('/login', (req, res, next) => {
 				user: user,
 				token: token
 			}
+		}
+	})()
+		.then(r => {
+			res.json(r)
+		})
+		.catch(e => {
+			next(e)
+		})
+})
+
+router.post('/wechat/login', (req, res, next)=>{
+	(async() => {
+		const {code} = req.body
+		const user = await WechatService.getUserInfoByCode(code)
+		return {
+			user,
 		}
 	})()
 		.then(r => {
