@@ -13,6 +13,7 @@ const UserSchema = new Schema({
 	phoneNumber: String,
 	password: String,
 	avatar: String,
+	openId: {type: String, index: true},
 })
  
 UserSchema.index({name: 1}, {unique: true})
@@ -24,15 +25,16 @@ const DEFAULT_PROJECTION = {password: 0, phoneNumber: 0, __v: 0}
 const UserModel = mongoose.model('user', UserSchema);
 
 async function createANewUser(params) {
-	const user = new UserModel({name: params.name, age: params.age, phoneNumber: params.phoneNumber})
-
-	user.password = await pbkdf2Async(params.password, SALT, 512, 128, 'sha1')
-		.then(r => r.toString())
-		.catch(e=>{
-			console.log(e)
-			throw new Errors.InternalError('something goes wrong inside the server')
-		})
-
+	const user = new UserModel({name: params.name, age: params.age, phoneNumber: params.phoneNumber, openId: params.openid})
+	if(params.password) {
+		user.password = await pbkdf2Async(params.password, SALT, 512, 128, 'sha1')
+			.then(r => r.toString())
+			.catch(e => {
+				console.log(e)
+				throw new Errors.InternalError('something goes wrong inside the server')
+			})
+	}
+	
 	let created = await user.save()
 		.catch(e=>{
 			logger.error('error creating user', e)
@@ -100,11 +102,21 @@ async function login(phoneNumber, password) {
 	return user;
 }
 
+async function loginWithWechat(user) {
+	let found = await UserModel.findOne({openId: user.openid})
+	if(found) return found
+
+	let created = await createANewUser({name: user.nickname, openId: user.openid})
+
+	return created;
+}
+
 module.exports = {
 	model: UserModel,
 	createANewUser,
 	getUsers,
 	getUserById,
 	updateUserById,
-	login
+	login,
+	loginWithWechat,
 }

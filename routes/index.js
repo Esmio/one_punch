@@ -43,8 +43,11 @@ router.post('/wechat/login', (req, res, next)=>{
 	(async() => {
 		const {code} = req.body
 		const user = await WechatService.getUserInfoByCode(code)
+		const foundOrCreated = await User.loginWithWechat(user)
+		const token = JWT.sign({ _id: user._id, iat: Date.now(), expire: Date.now() + 24 * 60 * 60 * 1000 }, JWT_SECRET)		
 		return {
-			user,
+			user: foundOrCreated,
+			token: token,		
 		}
 	})()
 		.then(r => {
