@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uri = 'mongodb://localhost:27100/one_for_all, loacalhost:27101/one_for_all, localhost:27102/one_for_all';
+const uri = 'mongodb://localhost:27017/one_for_all';
 mongoose.Promise = global.Promise;
 
 mongoose.connect(uri, {

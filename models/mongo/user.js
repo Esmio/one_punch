@@ -14,6 +14,7 @@ const UserSchema = new Schema({
 	password: String,
 	avatar: String,
 	openId: {type: String, index: true},
+	points: Number,
 })
  
 UserSchema.index({name: 1}, {unique: true})
