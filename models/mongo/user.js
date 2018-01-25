@@ -112,6 +112,11 @@ async function loginWithWechat(user) {
 	return created;
 }
 
+async function incrPoints (userId, points) {
+	const user = await UserModel.findOneAndUpdate({_id: userId},{$inc:{points: points}}, {new: true}, {fields: {points: 1}})
+	return user.points
+}
+
 module.exports = {
 	model: UserModel,
 	createANewUser,
@@ -120,4 +125,5 @@ module.exports = {
 	updateUserById,
 	login,
 	loginWithWechat,
+	incrPoints,
 }
