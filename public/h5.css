@@ -1,0 +1,303 @@
+html, body, div{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body,.root {
+    height: 100%;
+}
+@keyframes music {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@media (min-height: 2000px) {
+    /* input.name {
+        width: 4.4rem;
+        height: 1.1rem;
+    }
+    div.shake {
+        width: 2.8rem;
+        height: 2.8rem;
+        transform-origin: 0 2.8rem;
+    } */
+}
+@media (min-height: 2209px) {
+    /* input.name {
+        width: 4.8rem;
+        height: 1.2rem;
+    }
+    div.shake {
+        width: 2.8rem;
+        height: 2.9rem;
+        transform-origin: 0 2.9rem;
+    } */
+}
+.root {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    pointer-events: relative;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+    position: relative;
+}
+.audio {
+    width: .64rem;
+    height: .64rem;
+    background: url(img/music.png) center center no-repeat;
+    background-size: cover;
+    border-radius: .32rem;
+    position: absolute;
+    top: .4rem;
+    right: .4rem;
+    z-index: 1;
+}
+.audio.active {
+    animation: music 2s linear infinite;
+}
+.rokid1 {
+    width: 100%;
+    height: 100%;
+    background: url(img/1.11.png) no-repeat center center;
+    background-size: cover;
+    background-color: #f2f2f2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.name {
+    width: 4rem;
+    height: 1rem;
+    font-size: .42rem;
+    background-color: rgba(255,255,255, 0);
+    position: absolute;
+    outline: none;
+    top: 63.5%;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+}
+.shake {
+    width: 2.4rem;
+    height: 2.4rem;
+    position: absolute;
+    bottom: 0;
+    background: url(img/shake.png) no-repeat center center;
+    background-size: cover;
+    transform: rotate(0deg);
+    transform-origin: 0 2.4rem;
+}
+.shake.active {
+    animation: shake .8s ease-in-out infinite;
+}
+.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,.6);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loading-img {
+    width: 4rem;
+    height: 3.9rem;    
+    background: url(img/2.2.png) no-repeat center center;
+    background-size: cover;
+}
+.rokid2 {
+    width: 7.5rem;
+    height: 30rem;
+    background: rgba(255,255,255,.8);
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: url(img/c-bg.png) no-repeat center .16rem;
+    background-size: contain;
+    background-color: #f44156;
+}
+.result-img{
+    height: 12rem;
+    width: 100%;
+    position: relative;
+}
+.sign-box {
+    position: relative;
+    top: 2.7rem;
+    left: 2rem;
+    width: 3.5rem;
+    height: 4.05rem;
+    font-size: .32rem;
+    display: flex;
+}
+.pre-sign-box {
+    top: 22%;
+}
+.nick {
+    position: absolute;
+    bottom: .5rem;
+    left: .6rem;
+    width: .16rem;
+    height: auto;
+    color: #cc1c28;
+}
+.sign{
+    width: 2.2rem;
+    writing-mode: vertical-rl;
+    box-sizing: border-box;
+    padding: .2rem;
+    padding-bottom: .4rem;
+    letter-spacing: 2px;
+}
+.sign-right {
+    padding: .2rem;
+    width: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.py {
+    font-size: .4rem;
+    color: #797979;
+}
+.lot {
+    font-size: .72rem;
+    font-weight: bold;
+}
+.buttons {
+    width: 100%;
+    height: 2.72rem;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button {
+    width: 3.44rem;
+    height: 2.72rem;
+    margin-top: .8rem;
+    line-height: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #222;
+    font-size: .36rem;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+#again {
+    background: url(img/button-left.png) no-repeat center center;
+    background-size: 100%
+}
+#save {
+    background: url(img/button-right.png) no-repeat center center;
+    background-size: 100%    
+}
+.button:active{
+    background-color: #ddd
+}
+.content{
+    width: 100%;
+    height: 18rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.6rem;
+    box-sizing: border-box;
+}
+.pre-save{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: url(img/4.5.png) no-repeat center center;
+    background-size: 100% 100%;
+    background-color: #70a1ff;
+    position: relative;
+}
+.qrcode {
+    position: absolute;
+    width: 1.1rem;
+    height: 1.1rem;
+    background-color: #fff;
+    bottom: 2.6%;
+    right: 17%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.item-wraper {
+    width: 6.19rem;
+    height: 1.78rem;
+    border-radius: .4rem;
+    box-shadow: .1rem .1rem .6rem #ff3131;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+    background-color: #ff3131;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item {
+    width: 5.95rem;
+    height: 1.23rem;
+    display: flex;
+    padding: .2rem;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: .28rem;
+    color: #222;
+}
+.abutton {
+    width: 1.2rem;
+    height: .6rem;
+}
+.logo {
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid green;
+}
+.info {
+    height: 1rem;
+    width: 3.2rem;
+}
+.link a{
+    display: block;
+    text-decoration: none;
+    color: #222;
+    border-radius: .03rem;
+    font-size: .32rem;
+    border: 1px solid #ddd;
+    padding: .12rem;
+    box-shadow: 0 .01rem .03rem #ddd;
+}
