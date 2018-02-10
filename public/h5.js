@@ -33,7 +33,10 @@ window.onload = function() {
             var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
             if (speed > SHAKE_THRESHOLD) {
                 if(input.value && shake) {
-                    nickname = input.value;
+                    if (input.value.length > 5) {
+                        input.value = input.value.substr(0, 5)
+                    }
+                    nickname = input.value.split('').join(' ');
                     shakeMusic.play()
                     loading()
                 }               
@@ -338,5 +341,10 @@ window.onload = function() {
         music = !music  
         music ? $(this).addClass('active') : $(this).removeClass('active')      
         music ? bgMusic.play() : bgMusic.pause()
+    })
+    $(input).on('blur', function() {
+        if (input.value.length > 5) {
+            input.value = input.value.substr(0,5)
+        }
     })
 }
