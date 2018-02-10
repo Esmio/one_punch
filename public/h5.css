@@ -101,7 +101,7 @@ html,body,.root {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: url(img/c-bg.png) no-repeat center .16rem;
+    background: url(img/c-bg.png) no-repeat center 1vw;
     background-size: 100% 100%;
     background-color: #f44156;
 }
@@ -124,24 +124,24 @@ html,body,.root {
 }
 .nick {
     position: absolute;
-    bottom: .5rem;
-    left: .6rem;
-    width: .16rem;
+    bottom: 6.6vw;
+    left: 8vw;
+    width: 2.1vw;
     height: auto;
     color: #cc1c28;
 }
 .sign{
-    width: 2.2rem;
+    width: 29.3vw;
     writing-mode: vertical-rl;
     -webkit-writing-mode: vertical-rl;
     box-sizing: border-box;
-    padding: .2rem;
-    padding-bottom: .4rem;
+    padding: 2.7vw;
+    padding-bottom: 5.3vw;
     letter-spacing: 2px;
 }
 .sign-right {
-    padding: .2rem;
-    width: 1.3rem;
+    padding: 2.7vw;
+    width: 17.3vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -156,7 +156,7 @@ html,body,.root {
 }
 .buttons {
     width: 100%;
-    height: 2.72rem;
+    height: 36.3vw;
     position: absolute;
     bottom: 0;
     display: flex;
@@ -164,10 +164,10 @@ html,body,.root {
     align-items: center;
 }
 .button {
-    width: 3.44rem;
-    height: 2.72rem;
-    margin-top: .8rem;
-    line-height: 1rem;
+    width: 45.9vw;
+    height: 36.3vw;
+    margin-top: 10.7vw;
+    line-height: 13.3vw;
     text-align: center;
     font-weight: bold;
     color: #222;
@@ -191,10 +191,10 @@ html,body,.root {
 }
 .content{
     width: 100%;
-    height: 18rem;
+    height: 240vw;
     display: flex;
     flex-direction: column;
-    padding-top: 2.6rem;
+    padding-top: 34.7vw;
     box-sizing: border-box;
 }
 .pre-save{
@@ -225,39 +225,38 @@ html,body,.root {
     align-items: center;
 }
 .item-wraper {
-    width: 6.19rem;
-    height: 1.78rem;
-    border-radius: .4rem;
+    width: 82.5vw;
+    height: 23.7vw;
+    border-radius: 5.3vw;
     box-shadow: .1rem .1rem .6rem #ff3131;
-    margin-top: .2rem;
-    margin-bottom: .2rem;
+    margin-top: 2.7vw;
+    margin-bottom: 2.7vw;
     background-color: #ff3131;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .item {
-    width: 5.95rem;
-    height: 1.23rem;
+    width: 79.3vw;
+    height: 16.4vw;
     display: flex;
-    padding: .2rem;
+    padding: 2.7vw;
     justify-content: flex-end;
     align-items: center;
     font-size: .28rem;
     color: #222;
 }
 .abutton {
-    width: 1.2rem;
-    height: .6rem;
+    width: 16vw;
+    height: 8vw;
 }
 .logo {
-    width: 1rem;
-    height: 1rem;
-    border: 1px solid green;
+    width: 13.3vw;
+    height: 13.3vw;
 }
 .info {
-    height: 1rem;
-    width: 3.2rem;
+    height: 13.3vw;
+    width: 42.7vw;
 }
 .link a{
     display: block;
@@ -266,7 +265,7 @@ html,body,.root {
     border-radius: .03rem;
     font-size: .32rem;
     border: 1px solid #ddd;
-    padding: .12rem;
+    padding: 1.6vw;
     box-shadow: 0 .01rem .03rem #ddd;
 }
 .audio {
