@@ -6,6 +6,7 @@ window.onload = function() {
     var again = document.querySelector('#again')
     var audio = document.querySelector('#audio')
     var bgMusic = document.querySelector('#bgMusic');
+    var shakeMusic = document.querySelector('#shakeMusic');
     var shakeEle = document.querySelector('#shake');
     var preSave = document.getElementById('pre-save');    
     var nickname = '';
@@ -33,6 +34,7 @@ window.onload = function() {
             if (speed > SHAKE_THRESHOLD) {
                 if(input.value && shake) {
                     nickname = input.value;
+                    shakeMusic.play()
                     loading()
                 }               
             }
@@ -284,7 +286,7 @@ window.onload = function() {
             }
         })
     }
-    loading()
+    // loading()
     // new QRCode(document.getElementById("qrcode"), "http://www.runoob.com");
     // 加载第二页
     function loading(){
