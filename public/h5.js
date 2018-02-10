@@ -46,7 +46,7 @@ window.onload = function() {
         {
             img: '1.png',
             info: '你好我是你好我是你好我是你好我是你好我是你好我1',
-            link: 'https://www.hotbody.cn/?source=bd_market',
+            link: 'https://www.rokid.com/chunjie/main/h5.html',
         },
         {
             img: '2.png',
@@ -295,7 +295,7 @@ window.onload = function() {
     }
     // new QRCode(document.getElementById("qrcode"), "http://www.runoob.com");
     // 加载第二页
-    loading()
+    // loading()
     function loading(){
         var loading = document.getElementById('loading');
         var rokid1 = document.getElementById('rokid1');
