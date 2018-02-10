@@ -46,31 +46,31 @@ window.onload = function() {
         {
             img: '1.png',
             info: '你好我是你好我是你好我是你好我是你好我是你好我1',
-            link: '#',
+            link: 'https://www.hotbody.cn/?source=bd_market',
         },
         {
             img: '2.png',
             info: '你好我是你好我是你好我是你好我是你好我是你好我2',
-            link: '#',
+            link: 'http://a.app.qq.com/o/simple.jsp?pkgname=com.jingdian.tianxiameishi.android',
         },
         {
             img: '3.png',
             info: '你好我是你好我是你好我是你好我是你好我是你好我3',
-            link: '#',
+            link: 'https://hsapi.imhuasheng.com/app/v2/channel/register?channel=215&channelName=Rokid',
         },
         {
             img: '4.png',
             info: '你好我是你好我是你好我是你好我是你好我是你好我4',
-            link: '#',
+            link: 'http://www.qbb6.com/?from=bd1-android-1057',
         },
         {
             img: '5.png',
             info: '你好我是你好我是你好我是你好我是你好我是你好我5',
-            link: '#',
+            link: 'http://www.dailyyoga.com.cn/d/public/index.php?b=1&channel=100052',
         }, {
             img: '6.png',
             info: '你好我是你好我是你好我是你好我是你好我是你好我6',
-            link: '#',
+            link: 'https://www.hotbody.cn/?source=bd_market',
         }
     ]
     let lots = [
@@ -295,6 +295,7 @@ window.onload = function() {
     }
     // new QRCode(document.getElementById("qrcode"), "http://www.runoob.com");
     // 加载第二页
+    loading()
     function loading(){
         var loading = document.getElementById('loading');
         var rokid1 = document.getElementById('rokid1');
