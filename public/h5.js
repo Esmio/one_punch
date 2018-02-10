@@ -1,4 +1,3 @@
-//运动事件监听
 window.onload = function() {
     var shake = true
     var music = true
@@ -11,6 +10,7 @@ window.onload = function() {
     var preSave = document.getElementById('pre-save');    
     var nickname = '';
     var randomSign = {};
+    //运动事件监听
     if (window.DeviceMotionEvent) {
         window.addEventListener('devicemotion', deviceMotionHandler, false);
     }
@@ -102,11 +102,11 @@ window.onload = function() {
         {
             lot: "乐",
             py: "lè",
-            sign: "旺年一把逍遥乐，不羡神仙不羡仙。"
+            sign: "旺年就要逍遥乐，不羡神仙不羡仙。"
         }, {
             lot: "赞",
             py: "zàn",
-            sign: "金你一发言，八方点赞；点赞神签请收好。"
+            sign: "你一发言，八方点赞；点赞神签请收好。"
         },
         {
             lot: "瘦",
@@ -134,7 +134,7 @@ window.onload = function() {
         }, {
             lot: "型",
             py: "xíng",
-            sign: "线条腹肌马甲线，旺年越练越有型。"
+            sign: "胸肌腹肌马甲线，旺年越练越有型。"
         },
         {
             lot: "爱",
@@ -148,12 +148,12 @@ window.onload = function() {
         }, {
             lot: "空",
             py: "kōng",
-            sign: "烦恼忧愁清仓1折起已被抢购一空。"
+            sign: "烦恼忧愁清仓一折起已被抢购一空。"
         },
         {
             lot: "任",
             py: "rèn",
-            sign: "旺年的你，做你想做的，有钱，任性。"
+            sign: "旺年里，做你想做的，吃你想吃的，就是任性。"
         },
         {
             lot: "放",
@@ -167,7 +167,7 @@ window.onload = function() {
         {
             lot: "勇",
             py: "yǒng",
-            sign: "黑即白的世界，放飞枷锁勇敢做自己。"
+            sign: "非黑即白的世界，放飞枷锁勇敢做自己。"
         },
         {
             lot: "宝",
@@ -176,7 +176,7 @@ window.onload = function() {
         }, {
             lot: "喜",
             py: "xǐ",
-            sign: "把不开心都留在鸡年，旺年就天天开心"
+            sign: "已把不开心都留在鸡年，旺年就天天开心"
         },
         {
             lot: "康",
@@ -186,7 +186,7 @@ window.onload = function() {
         {
             lot: "怼",
             py: "duì",
-            sign: "怼天怼地怼老板，生娃升职生大财。"
+            sign: "怼天怼地怼老板，生娃升职升大财。"
         }, {
             lot: "不",
             py: "bù",
@@ -195,16 +195,7 @@ window.onload = function() {
         {
             lot: "升",
             py: "shēng",
-            sign: "职加薪当老板，财务自由旺整年。"
-        },
-        {
-            lot: "棒",
-            py: "bàng",
-            sign: "你最棒你最棒你最棒你最棒你最棒你最棒了！"
-        }, {
-            lot: "哈",
-            py: "hā",
-            sign: "旺年每天都哈哈哈哈哈哈哈红红火火恍恍惚"
+            sign: "升职加薪当老板，财务自由旺整年。"
         },
     ]
     function getRandomSign(arr) {
