@@ -295,6 +295,7 @@ window.onload = function() {
     }
     // new QRCode(document.getElementById("qrcode"), "http://www.runoob.com");
     // 加载第二页
+    loading()
     function loading(){
         var loading = document.getElementById('loading');
         var rokid1 = document.getElementById('rokid1');

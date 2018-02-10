@@ -94,8 +94,8 @@ html,body,.root {
     background-size: cover;
 }
 .rokid2 {
-    width: 7.5rem;
-    height: 30rem;
+    width: 100vw;
+    height: 400vw;
     display: none;
     position: absolute;
     flex-direction: column;
