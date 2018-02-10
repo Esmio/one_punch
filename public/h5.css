@@ -133,6 +133,7 @@ html,body,.root {
 .sign{
     width: 2.2rem;
     writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
     box-sizing: border-box;
     padding: .2rem;
     padding-bottom: .4rem;
