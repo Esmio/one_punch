@@ -50,31 +50,31 @@ window.onload = function() {
     var arr = [
         {
             img: '1.png',
-            info: '你好我是你好我是你好我是你好我是你好我是你好我1',
-            link: 'https://www.rokid.com/chunjie/main/h5.html',
+            name: 'rokid',
+            link: 'https://item.m.jd.com/product/5382107.html',
         },
         {
             img: '2.png',
-            info: '你好我是你好我是你好我是你好我是你好我是你好我2',
+            name: 'txms',
             link: 'http://a.app.qq.com/o/simple.jsp?pkgname=com.jingdian.tianxiameishi.android',
         },
         {
             img: '3.png',
-            info: '你好我是你好我是你好我是你好我是你好我是你好我3',
+            name: 'hst',
             link: 'https://hsapi.imhuasheng.com/app/v2/channel/register?channel=215&channelName=Rokid',
         },
         {
             img: '4.png',
-            info: '你好我是你好我是你好我是你好我是你好我是你好我4',
+            name: 'qbb',
             link: 'http://www.qbb6.com/?from=bd1-android-1057',
         },
         {
             img: '5.png',
-            info: '你好我是你好我是你好我是你好我是你好我是你好我5',
+            name: 'dailyyoga',
             link: 'http://www.dailyyoga.com.cn/d/public/index.php?b=1&channel=100052',
         }, {
             img: '6.png',
-            info: '你好我是你好我是你好我是你好我是你好我是你好我6',
+            name: 'hotbody',
             link: 'https://www.hotbody.cn/?source=bd_market',
         }
     ]
@@ -253,6 +253,7 @@ window.onload = function() {
             var n = _arr.splice(r, 1)
             // newArr.push(n[0])
             var item = _renderItem(n[0].img, n[0].link);
+            if(location.search.indexOf(n[0].name) > -1) continue;
             $(list).append(item)
         }
     }
