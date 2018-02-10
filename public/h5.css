@@ -96,14 +96,13 @@ html,body,.root {
 .rokid2 {
     width: 7.5rem;
     height: 30rem;
-    background: rgba(255,255,255,.8);
     display: none;
     position: absolute;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     background: url(img/c-bg.png) no-repeat center .16rem;
-    background-size: cover;
+    background-size: 100% 100%;
     background-color: #f44156;
 }
 .result-img{
