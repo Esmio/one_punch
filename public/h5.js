@@ -284,6 +284,7 @@ window.onload = function() {
             }
         })
     }
+    loading()
     // new QRCode(document.getElementById("qrcode"), "http://www.runoob.com");
     // 加载第二页
     function loading(){
