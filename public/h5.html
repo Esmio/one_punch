@@ -108,6 +108,55 @@
             <img src="" id="print" alt="">
         </div>
         <script>
+            var config = {
+                debug: false,
+                appId: '',
+                timestamp: '',
+                nonceStr: '',
+                signature: '',
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+            };
+            var url = 'https://www.rokid.com/getWX?url=' + encodeURIComponent(location.href.split('#')[0]);
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                dataType: 'json',
+                success: function (res) {
+                    config.appId = res.appid;
+                    config.nonceStr = res.nonce_str;
+                    config.timestamp = res.timestamp;
+                    config.signature = res.signature;
+                    wx.config(config);
+                    wx.ready(function () {
+                        wx.onMenuShareTimeline({
+                            title: '这个新年签深得朕的心意',
+                            link: 'https://www.rokid.com/chunjie/h5.html',
+                            imgUrl: 'https://www.rokid.com/chunjie/share.png',
+                            sucess: function () {
+                                console.log('分享朋友圈成功');
+                            },
+                            cancel: function () {
+                                console.log('分享朋友圈取消');
+                            }
+                        });
+                        wx.onMenuShareAppMessage({
+                            title: '这个新年签深得朕的心意',
+                            desc: '若琪抽新年签',
+                            link: 'https://www.rokid.com/chunjie/h5.html',
+                            imgUrl: 'https://www.rokid.com/chunjie/share.png',
+                            sucess: function () {
+                                console.log('分享朋友成功');
+                            },
+                            cancel: function () {
+                                console.log('分享朋友取消');
+                            }
+                        })
+                    })
+                }
+            })
+        </script>
+        <script>
             (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
                 (i[r].q = i[r].q || []).push(arguments)
