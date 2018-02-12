@@ -51,31 +51,31 @@ window.onload = function () {
         {
             img: '1.png',
             name: 'rokid',
-            link: 'https://item.m.jd.com/product/5382107.html',
+            link: 'y0.cn/eU2TT',
         },
         {
             img: '2.png',
             name: 'txms',
-            link: 'http://a.app.qq.com/o/simple.jsp?pkgname=com.jingdian.tianxiameishi.android',
+            link: 'y0.cn/WQs8b',
         },
         {
             img: '3.png',
             name: 'hst',
-            link: 'https://hsapi.imhuasheng.com/app/v2/channel/register?channel=215&channelName=Rokid',
+            link: 'y0.cn/bEY8L',
         },
         {
             img: '4.png',
             name: 'qbb',
-            link: 'http://www.qbb6.com/?from=bd1-android-1057',
+            link: 'y0.cn/5hDKg',
         },
         {
             img: '5.png',
             name: 'dailyyoga',
-            link: 'http://www.dailyyoga.com.cn/d/public/index.php?b=1&channel=100052',
+            link: 'y0.cn/ccYnd',
         }, {
             img: '6.png',
             name: 'hotbody',
-            link: 'https://www.hotbody.cn/?source=bd_market',
+            link: 'y0.cn/gGQFu',
         }
     ]
     let lots = [
