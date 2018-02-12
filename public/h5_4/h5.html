@@ -1,0 +1,129 @@
+<!doctype HTML5>
+<html>
+    <head>
+        <title>若琪新年签</title>
+        <meta charset="utf-8">
+        <meta property="og:image" content="http://www.esmio.cn/img/share.jpeg">
+        <link rel="stylesheet" href="h5.css">
+        <script>
+            ! function (e) {
+                    function t(a) {
+                        if (i[a]) return i[a].exports;
+                        var n = i[a] = {
+                            exports: {},
+                            id: a,
+                            loaded: !1
+                        };
+                        return e[a].call(n.exports, n, n.exports, t), n.loaded = !0, n.exports
+                    }
+                    var i = {};
+                    return t.m = e, t.c = i, t.p = "", t(0)
+                }([function (e, t) {
+                    "use strict";
+                    Object.defineProperty(t, "__esModule", {
+                        value: !0
+                    });
+                    var i = window;
+                    t["default"] = i.flex = function (e, t) {
+                        var a = e || 100,
+                            n = t || 1,
+                            r = i.document,
+                            o = navigator.userAgent,
+                            d = o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),
+                            l = o.match(/U3\/((\d+|\.){5,})/i),
+                            c = l && parseInt(l[1].split(".").join(""), 10) >= 80,
+                            p = navigator.appVersion.match(/(iphone|ipad|ipod)/gi),
+                            s = i.devicePixelRatio || 1;
+                        p || d && d[1] > 534 || c || (s = 1);
+                        var u = 1 / s,
+                            m = r.querySelector('meta[name="viewport"]');
+                        m || (m = r.createElement("meta"), m.setAttribute("name", "viewport"), r.head.appendChild(m)), m.setAttribute("content", "width=device-width,user-scalable=no,initial-scale=" + u + ",maximum-scale=" + u + ",minimum-scale=" + u), r.documentElement.style.fontSize = a / 2 * s * n + "px"
+                    }, e.exports = t["default"]
+                }]);
+                flex(100, 1);
+        </script>
+        <script type="text/javascript" src="html2canvas.js"></script>
+        <script type="text/javascript" src="qrcode.js"></script>
+        <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+    </head>
+    <body>
+        <div style="display:none;">
+            <img src="img/share.jpeg" alt="">
+        </div>
+        <div class="root" id="root">
+            <div class="audio active" id="audio"></div>
+            <div id="rokid1" class="rokid1">
+                <input class="name" id="name" type="text" placeholder="请输入尊姓大名">
+                <div id="shake" class="shake active"></div>
+            </div>
+            <audio autoplay id="bgMusic" loop src="goldSnake.mp3"></audio>
+            <audio  id="shakeMusic" src="shake.mp3"></audio>
+            <div id="loading" class="loading">
+                <div class="loading-img"></div>
+            </div>
+            <div class="rokid2" id="rokid2">
+                <div class="result-img">
+                    <div class="sign-box">
+                        <div class="nick" id="nick"></div>
+                        <div class="sign" id="sign">
+                             
+                        </div>
+                        <div class="sign-right">
+                            <div class="py" id="py"></div>
+                            <div class="lot" id="lot"></div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="button" id="again"></div>                         
+                        <div class="button" id="save"></div>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="content">
+                    <div class="list" id="list">
+                    </div>
+                </div>
+            </div>
+            <div class="pre-save" id="pre-save">
+                <div class="pre-up">
+                    <div class="img-top">
+                        <div class="sign-box pre-sign-box">
+                            <div class="nick" id="pre-nick"></div>
+                            <div class="sign" id="pre-sign">
+                        
+                            </div>
+                            <div class="sign-right">
+                                <div class="py" id="pre-py"></div>
+                                <div class="lot" id="pre-lot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pre-foot">
+                    <div class="pre-foot-left"></div>
+                    <div class="qrcode" id="qrcode"></div>
+                    <div class="pre-foot-right"></div>
+                </div>
+            </div>
+            <img src="" id="print" alt="">
+        </div>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-97204346-3', 'auto');
+            ga('set', 'page', 'spring');
+            ga('send', 'pageview');
+        </script>
+        <script>
+            $('body,html').height(document.body.clientHeight);
+            $('body,html').width(document.body.clientWidth);     
+        </script>
+        <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script type="text/javascript" src="h5.js"></script>
+    </body>
+</html>
