@@ -299,8 +299,8 @@ html,body,.root {
 }
 .qrcode {
     position: absolute;
-    width: 12.7vw;
-    height: 12.7vw;
+    width: 13.7vw;
+    height: 13.7vw;
     background-color: #fff;
     bottom: 30%;
     right: 17%;

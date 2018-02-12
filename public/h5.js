@@ -333,8 +333,8 @@ window.onload = function() {
         var qrcode = document.getElementById("qrcode")
         new QRCode('qrcode', {
             text: location.href,
-            width: qrcode.clientWidth - 15,
-            height: qrcode.clientHeight - 15,
+            width: qrcode.clientWidth - 10,
+            height: qrcode.clientHeight - 10,
         })
         getScreenShoot(document.getElementById('pre-save')) 
     })
